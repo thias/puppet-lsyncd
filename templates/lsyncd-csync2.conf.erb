@@ -90,7 +90,7 @@ initSync = {
 }
 
 local sources = {
-<% lsyncd_csync2_sources.sort_by {|key, value| key}.each do |key,value| -%>
+<% @lsyncd_csync2_sources.sort_by {|key, value| key}.each do |key,value| -%>
     ["<%= key %>"] = "<%= value %>",
 <% end -%>
 }
