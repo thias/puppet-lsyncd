@@ -1,0 +1,32 @@
+{
+  "name": "thias-lsyncd",
+  "version": "1.0.0",
+  "author": "Matthias Saou",
+  "license": "Apache-2.0",
+  "summary": "Lsyncd module",
+  "source": "https://github.com/thias/puppet-lsyncd",
+  "project_page": "https://forge.puppetlabs.com/thias/lsyncd",
+  "issues_url": "https://github.com/thias/puppet-lsyncd/issues",
+  "tags": ["lsyncd", "rsync", "csync2"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem": "RedHat",
+    "operatingsystemrelease": [ "6" ]
+    },
+    {
+    "operatingsystem": "CentOS",
+    "operatingsystemrelease": [ "6" ]
+    }
+  ],
+  "requirements": [
+    {
+    "name": "pe",
+    "version_requirement": "3.x"
+    },
+    {
+    "name": "puppet",
+    "version_requirement": ">=2.7.20 <4.0.0"
+    }
+  ],
+  "dependencies": []
+}

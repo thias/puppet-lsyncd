@@ -1,0 +1,15 @@
+# Keep the space there for systemd. Don't nest variables without
+# changing the systemd service file to use: /usr/bin/sh -c 'eval XXXX'
+#
+#LSYNCD_OPTIONS="-pidfile /var/run/lsyncd.pid /etc/lsyncd.conf"
+
+<% if @lsyncd_options -%>
+LSYNCD_OPTIONS="<%= @lsyncd_options %>"
+<% else -%>
+#LSYNCD_OPTIONS=" "
+<% end -%>
+<% if @lsyncd_user -%>
+LSYNCD_USER="<%= @lsyncd_user %>"
+<% else -%>
+#LSYNCD_USER=""
+<% end -%>
