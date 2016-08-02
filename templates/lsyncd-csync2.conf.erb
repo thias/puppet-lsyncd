@@ -35,7 +35,7 @@ initSync = {
             return "\t" .. config.syncid .. ":" .. directory .. path
         end)
         log("Normal", "Processing syncing list:\n", table.concat(paths, "\n"))
-        spawn(elist, "/usr/sbin/csync2", "-C", config.syncid, "-x")
+        spawn(elist, "/usr/sbin/csync2", "-C", config.syncid, "-x", "-N", "<%= @fqdn %>")
     end,
     collect = function(agent, exitcode)
         local config = agent.config
@@ -74,14 +74,14 @@ initSync = {
         local inlet = event.inlet;
         local config = inlet.getConfig();
         log("Normal", "Recursive startup sync: ", config.syncid, ":", config.source)
-        spawn(event, "/usr/sbin/csync2", "-C", config.syncid, "-x")
+        spawn(event, "/usr/sbin/csync2", "-C", config.syncid, "-x", "-N", "<%= @fqdn %>")
     end,
     prepare = function(config)
         if not config.syncid then
             error("Missing 'syncid' parameter.", 4)
         end
         local c = "csync2_" .. config.syncid .. ".cfg"
-        local f, err = io.open("/etc/csync2/" .. c, "r")
+        local f, err = io.open("<%= scope['lsyncd::params::cfg_path'] %>" .. c, "r")
         if not f then
             error("Invalid 'syncid' parameter: " .. err, 4)
         end
