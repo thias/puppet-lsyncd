@@ -50,7 +50,7 @@ class lsyncd (
     ensure  => 'directory',
     owner   => $logdir_owner,
     group   => $logdir_group,
-    mode    => $logdir_mode,
+    mode    => "$logdir_mode",
     require => Package['lsyncd'],
     before  => Service['lsyncd'],
   }
